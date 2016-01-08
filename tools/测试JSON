@@ -1,0 +1,107 @@
+{
+  "appInfo": {
+    "appver": "3.0.1",
+    "appid": "com.waveo.perkdev",
+    "env": "development"
+  },
+  "accountInfo": {
+    "mobileNo": "+6591269162",
+    "familyName": "Bao",
+    "givenName": "Wen Yan",
+    "gender": "2",
+    "birth": "528822592",
+    "username": "",
+    "password": "",
+    "email":"",
+    "address":""
+  },
+  "mobileExt": {
+  	"lang": "en",
+  	"action": "register_v1",
+  	"rqsid": "1398352212020"
+  },
+  "carrierInfo": {
+    "isoCountryCode": "SG",
+    "carrierName": "SingTel",
+    "mobileCountryCode": "65"
+  },
+  "deviceInfo": {
+    "name": "iPhone OS",
+    "model": "iPhone6,2",
+    "uuid": "CBA1F987-470A-44C0-BC18-4EC883727FFF",
+    "osName": "iphone",
+    "osVersion": "7.1.1",
+    "locale": "en"
+  }
+}
+
+议程：网贷系统技术培训
+时间：11.22号（明天）上午 10点 
+地点：新的办公地点（国家广告产业园3栋805）会议室
+人员：夏发启、陈云凤、唐超、周凌云、贾文涛
+
+
+
+各位下午好，MOSHOP App应用通过苹果公司的审核并上线了，下面是App下载的二维码
+
+
+
+1、用户名、手机号码、e-mail、地址、会员卡号、会员标签支持模糊搜索
+2、添加会员等级搜索（可以进行多选）、添加姓名搜索
+3、地址移到和区域一排的，姓名替换原先地址的位置
+4、通知方式改为多选（即可以选择短信也可以选择邮箱），并且选择完毕后，可以进行短信、邮件内容进行编辑，点击【短信方式】 显示短信内容输入框 ，点击【邮件方式】显示邮件内容输入框
+5、可以选择全部（即选择全部的搜索结果，目前搜索结果有分页数据，不好选择全部）【搜索发送】改成【发送当前搜索结果集会员】，【选择发送】改为【发送给当前选择会员】
+6、筛选按钮居中，添加一个重置按钮
+7、点击【选择发送】，发送失败，无任何的提示操作，需要告诉使用者，是否发送成功和发送转圈提示
+8、selectSendCoupon 修改为 sendCouponToMember
+9、重构selectSendCoupon、目前需要重构的为 短信发送method、邮件发送method
+
+
+
+1、MO FRIENDS 的图片之间不需要需要间距
+2、Presskit每行数据之间不需要空隙
+3、PressKit的顶端标题错误，应该是Presskit/-2014
+4、商品详情界面的加号，底部横线显示不清楚
+5、购物车的View界面面板有点小，需要按照原本UI调下大小
+6、发票选择界面，当不选择发票类型，填写发票类型，直接选择过去后，会为空，如果没有选择发票类型，就直接发票抬头为空
+7、联系我们的界面UI 框少了1个像素
+8、个人资料没有修改功能
+9、从个人中心返回，商品详情界面的图片会变小
+10、绑定贵宾卡界面，绑定按钮字乱码
+11、Campaing视屏不能播放和返回
+12、App启动，没有启动画面
+
+
+
+1、工作流JBPM
+2、前台easyui
+3、代码模板
+4、基于JBPM5.2为基础的版本进行开发，JBOSS作为运用服务器
+5、Drools规则引擎控制流程
+
+
+
+
+
+src="http://mocoshop.oss.aliyuncs.com/upload/image/201411/e960ac06-9b6e-4501-b33f-22cfc3ddcd0f-thumbnail.jpg"
+
+src="http://mocoshop.oss.aliyuncs.com/upload/image/201411/e960ac06-9b6e-4501-b33f-22cfc3ddcd0f-thumbnail.jpg"
+
+
+
+
+
+<img id="productImages[2].file" src="http://mocoshop.oss.aliyuncs.com/upload/image/201411/a3210dda-4db9-4ae5-b20e-b20ff1658d35-thumbnail.jpg" width="60px">
+<img id="productImages[4].file" src="http://mocoshop.oss.aliyuncs.com/upload/image/201411/a3210dda-4db9-4ae5-b20e-b20ff1658d35-thumbnail.jpg" width="60px">
+
+
+
+sqlplus 'kunyun@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<endpoint>)
+    (PORT=<port number>))(CONNECT_DATA=(SID=<database name>)))'
+
+
+
+sqlplus kunyun/kunyunkunyun@orcl.c5ddyeie5utq.ap-northeast-1.rds.amazonaws.com:1521/orcl as sysdba;
+
+
+

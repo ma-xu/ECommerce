@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="moshop" default="publish" basedir=".">
+	<target name="init" description="设置初始化打 war 包需要的路径变量">
+		<property name="name" value="moshop" />
+		<property name="src" value="${basedir}/src" />
+		<property name="lib" value="${basedir}/WebContent/WEB-INF/lib" />
+		<property name="webapp" value="${basedir}/WebContent" />
+		<property name="packages" value="ant.*" />
+	
+
+		<property name="build.src" value="${basedir}/release/moshop/src" />
+		<property name="build.dest" value="${basedir}/release/moshop/WEB-INF/classes" />
+		<property name="buildwar.dest" value="${basedir}/release/moshop" />
+		<property name="build.javadocs" value="${basedir}/release/doc" />
+		<property name="jar.dest" value="${basedir}/release/jar" />
+		<property name="war.dest" value="${basedir}/release/war" />
+		
+        <!-- 本地tomcat配置，为了方便实时打包到本地部署 -->
+		<property name="tomcat.home" value="/Users/farryxia/Documents/software/tomcat/apache-tomcat-6.0.36" />
+		<path id="classpath">
+			<fileset dir="${lib}">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${tomcat.home}/lib">  
+		        <include name="*.jar" />  
+		    </fileset>   
+		</path>
+	</target>
+	<target name="prepare" depends="init" description="创建打包需要的路径，拷贝源文件到打包路径下">
+		<mkdir dir="${build.src}" />
+		<mkdir dir="${build.dest}" />
+		<mkdir dir="${buildwar.dest}" />
+		<mkdir dir="${jar.dest}" />
+		<mkdir dir="${war.dest}" />
+		<copy todir="${build.src}">
+			<fileset dir="${src}" />
+		</copy>
+		<copy todir="${buildwar.dest}">
+			<fileset dir="${webapp}" />
+		</copy>
+	</target>
+	<target name="build" depends="prepare" description="编译 java 文件，拷贝 properties 属性配置文件到编译后的路径下">
+	    <javac srcdir="${build.src}" destdir="${build.dest}" encoding="utf-8" debug="true">
+			<classpath refid="classpath" />
+		</javac>
+		<copy todir="${build.dest}">
+			<fileset dir="${build.src}">
+				<include name="**/*.properties" />
+				<include name="**/*.xml" />
+			</fileset>
+		</copy>
+		
+	</target>
+	<!-- depends="javadoc" -->
+	<target name="antjar" depends="build" description="打 jar 包，不将 java 文件打入包内">
+		<delete dir="${build.src}" />
+		<jar jarfile="${jar.dest}/moshop_cms.jar" basedir="${build.dest}"/>
+	</target>
+	
+	<target name="antwar" depends="build" description="打 war 包，不将 java 文件打入包内">
+		<delete dir="${build.src}" />
+		<war warfile="${war.dest}/moshop.war" >
+			<lib dir="${buildwar.dest}/WEB-INF/lib" />
+			<classes dir="${build.dest}" />
+			<fileset dir="${buildwar.dest}" />
+		</war>
+	</target>
+
+	<target name="publish" depends="antjar,antwar,clean" description="发布 war 包至 tomcat 目录下">
+		<copy todir="${tomcat.home}/webapps">
+			<fileset dir="${war.dest}">
+				<include name="**/*.war" />
+			</fileset>
+		</copy>
+	</target>
+	<!--
+	<target name="javadoc" depends="build" description="生成 java 的 API 帮助文档">
+		<mkdir dir="${build.javadocs}"/>
+		<javadoc packagenames="${packages}" sourcepath="${build.src}" destdir="${build.javadocs}" author="true" version="true" use="true" splitindex="true" windowtitle="${name} API" doctitle="${name}">
+			<classpath refid="classpath"/>
+		</javadoc>
+	</target>
+	-->
+	<target name="clean" depends="init" description="清除打包用临时文件">
+		<delete dir="${build.src}" />
+		<delete>
+			<fileset dir="${build.dest}" includes="**/*.classes" />
+		</delete>
+		<delete dir="${buildwar.dest}" />
+	</target>
+</project>

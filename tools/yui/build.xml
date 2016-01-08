@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="js-css-press" default="compres-js-css" basedir=".">
+	<property name="jsDir" value="../../../web/js/hrm"/> 
+	<property name="outputDir" value="basedir/jsoutput"/> 
+    <path id="yuiClasspath">  
+        <fileset dir="${basedir}">  
+            <include name="yuicompressor-2.4.2.jar"/>  
+            <include name="YUIAnt.jar"/>  
+        </fileset>  
+    </path>  
+  
+    <target name="compres-js-css" description="压缩 js css 文件">  
+        <taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">  
+            <classpath>  
+                <path refid="yuiClasspath"/>  
+            </classpath>  
+        </taskdef>  
+        <yuicompress linebreak="300" warn="false" munge="yes"    
+            preserveallsemicolons="true" outputfolder="${outputDir}">  
+            <fileset dir="${jsDir}"> 
+            	<!--  
+                <include name="js/**/*.js" />  
+                <include name="lib/**/*.js"/>  
+                <include name="fckeditor/**/*.js"/>  
+                <include name="css/**/*.css"/>  
+                <include name="lib/**/*.css"/>  
+                <include name="fckeditor/**/*.css"/>
+                -->  
+            </fileset>  
+        </yuicompress>  
+    </target> 
+</project>
